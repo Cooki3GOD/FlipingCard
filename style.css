@@ -17,6 +17,14 @@ body {
 .container {
     height: 255px;
     width: 375px;
+    position: relative;
+    z-index: 1000;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+}
+
+.container:hover {
+    transform: rotateY(180deg);
 }
 
 .card {
@@ -28,6 +36,8 @@ body {
     box-shadow: 0 25px 45px rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: absolute;
+    backface-visibility: hidden;
 }
 
 .front-face .logo img {
@@ -76,4 +86,54 @@ h5.name {
 
 .valid-date {
     margin-top: 60px;
+}
+
+.card.back-face {
+    border: none;
+    padding: 15px 25px 25px 25px;
+    transform: rotateY(180deg);
+}
+
+.card.back-face h6 {
+    font-size: 8px;
+}
+
+.card.back-face .magnetic-strip {
+    position: absolute;
+    height: 45px;
+    width: 100%;
+    background-color: #000;
+    top: 40px;
+    left: 0;
+}
+
+.card.back-face .signature {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 80px;
+    height: 40px;
+    width: 85%;
+    background: repeating-linear-gradient(
+        #fff, 
+        #fff 3px, 
+        #efefef 0px, 
+        #efefef 9px
+    );
+    border-radius: 6px;
+}
+
+.signature i{
+    color: #000;
+    font-size: 12px;
+    margin-right: -30px;
+    padding: 4px 6px;
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: -1;
+}
+
+.card.back-face h5 {
+    font-size: 8px;
+    margin-top: 15p;
 }
